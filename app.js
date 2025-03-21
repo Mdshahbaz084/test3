@@ -37,7 +37,7 @@ try {
 
   // Register service worker manually to fix issues
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./firebase-messaging-sw.js', { scope: '/' })
+    navigator.serviceWorker.register('./firebase-messaging-sw.js', { scope: '/test2/' })
       .then(function(registration) {
         console.log('Service Worker registered with scope:', registration.scope);
         showSuccess('Service Worker registered successfully!');
@@ -121,13 +121,13 @@ try {
       if (payload.notification) {
         new Notification(payload.notification.title || 'New Notification', {
           body: payload.notification.body || 'You have a new notification',
-          icon: payload.notification.icon || './firebase-logo.png'
+          icon: payload.notification.icon || '/test2/firebase-logo.png'
         });
       } else {
         // Handle data messages
         new Notification('New Message', {
           body: payload.data ? JSON.stringify(payload.data) : 'You have a new message',
-          icon: './firebase-logo.png'
+          icon: '/test2/firebase-logo.png'
         });
       }
     }
