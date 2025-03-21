@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Madrasa Sikariya</title>
+    <link rel="icon" href="image/icon1.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pwa.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- PWA related meta tags -->
+    <meta name="theme-color" content="#1a3a6d">
+    <meta name="description" content="Welcome to Madrasa Sikariya - Islamic education and community center">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Madrasa Sikariya">
+    
+    <!-- PWA manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="image/icon1.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="image/icon1.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="image/icon1.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="image/icon1.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="image/icon1.png">
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-compat.js"></script>
+</head>
+<body>
+    <section id="home"></section>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <div class="logo-section" data-aos="fade-right">
+                <img src="image/icon madrsa.jpg" alt="Madrasa Logo" class="logo">
+                <h2>Welcome to Madrasa Sikariya</h2>
+            </div>
+            <ul class="nav-links">
+                <li data-aos="fade-right" data-aos-delay="100"><a href="#home"><i class="material-icons">home</i>Home</a></li>
+                <li data-aos="fade-right" data-aos-delay="200"><a href="#introduction"><i class="material-icons">info</i>Introduction</a></li>
+                <li data-aos="fade-right" data-aos-delay="300"><a href="#media"><i class="material-icons">perm_media</i>Media</a></li>
+                <li data-aos="fade-right" data-aos-delay="400"><a href="#donation"><i class="material-icons">volunteer_activism</i>Donation</a></li>
+                <li data-aos="fade-right" data-aos-delay="500"><a href="#contact-us"><i class="material-icons">contact_mail</i>Contact Us</a></li>
+                <li data-aos="fade-right" data-aos-delay="600"><a href="question-and-answer.html"><i class="material-icons">question_answer</i>Question Answer</a></li>
+            </ul>
+            <div class="social-links" data-aos="fade-up">
+                <h4>Share Website</h4>
+                <div class="share-buttons">
+                    <a href="javascript:void(0)" onclick="shareOnFacebook()" class="share-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="javascript:void(0)" onclick="shareOnWhatsApp()" class="share-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="javascript:void(0)" onclick="shareOnTwitter()" class="share-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="javascript:void(0)" onclick="copyToClipboard()" class="share-icon"><i class="fas fa-copy"></i></a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="mobile-header">
+                <button id="menuToggle" class="menu-toggle">
+                    <i class="material-icons">menu</i>
+                </button>
+                <h1>Welcome to Madrasa Sikariya</h1>
+            </div>
+            
+            <section id="media" class="section" data-aos="fade-up">
+                <h2>Media</h2>
+                <div class="content">
+                    <div class="section-header">
+                        <h3>Madrasa Ki Tasveeren</h3>
+                        <!-- <p class="section-subtitle">Experience our madrasa through these visual moments</p> -->
+                    </div>
+                    <div class="section-body">
+                        <div class="media-container">
+                            <div class="slideshow-container">
+                                <div class="mySlides fade">
+                                    <img src="image slide/inside front.jpg" alt="Madrasa Building">
+                                    <!-- <div class="slide-caption">Madrasa Main Building</div> -->
+                                </div>
+
+                                <div class="mySlides fade">
+                                    <img src="image slide/inside intro.jpg" alt="Students Learning">
+                                    <!-- <div class="slide-caption">Students Learning Environment</div> -->
+                                </div>
+
+                                <div class="mySlides fade">
+                                    <img src="image slide/inside view.jpg" alt="Prayer Area">
+                                    <!-- <div class="slide-caption">Interior View</div> -->
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src="image slide/inside2.jpg" alt="Prayer Area">
+                                    <!-- <div class="slide-caption">Study & Prayer Area</div> -->
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src="image slide/inside4.jpg" alt="Prayer Area">
+                                    <!-- <div class="slide-caption">Community Space</div> -->
+                                </div>
+
+                                <!-- Navigation buttons -->
+                                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+                            </div>
+                            
+                            <!-- Dots/indicators -->
+                            <div class="dots-container" style="text-align:center">
+                                <span class="dot" onclick="currentSlide(1)"></span>
+                                <span class="dot" onclick="currentSlide(2)"></span>
+                                <span class="dot" onclick="currentSlide(3)"></span>
+                                <span class="dot" onclick="currentSlide(4)"></span>
+                                <span class="dot" onclick="currentSlide(5)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="introduction" class="section" data-aos="fade-up">
+                <h2>Introduction</h2>
+                <div class="content">
+                    <div class="section-header">
+                        <h3>Darul Uloom Faizain-E-Tajushsharia Sikariya</h3>
+                        <!-- <p class="section-subtitle">Ilmi Aur Deeni Taleem Ka Markaz</p> -->
+                    </div>
+                    <div class="section-body">
+                        <div class="services">
+                            <h3>Hamari Khidmat</h3>
+                            <div class="service-grid">
+                                <div class="service-item" data-aos="zoom-in" data-aos-delay="100">
+                                    <i class="fas fa-book-quran service-icon"></i>
+                                    <h4>Taleem-e-Qur'an</h4>
+                                    <p>Hamari taleem ke markazi hissa Qur'an ki tilawat aur tafseer hai. Hum Qur'an ko makhsoos tajweed ke sath padhate hain aur uski amali istamal ki taraf bhi rahanmaye karte hain.</p>
+                                </div>
+                                <div class="service-item" data-aos="zoom-in" data-aos-delay="200">
+                                    <i class="fas fa-mosque service-icon"></i>
+                                    <h4>Hadith Aur Fiqh</h4>
+                                    <p>Hadith ki tafseer aur fiqh ke mutaliq pur-sukoon aur asan tareeqay se ilm faraham kiya jata hai, jisse ke students ko deeni masail ko samajhne mein madad milti hai.</p>
+                                </div>
+                                <div class="service-item" data-aos="zoom-in" data-aos-delay="300">
+                                    <i class="fas fa-star-and-crescent service-icon"></i>
+                                    <h4>Islamic Studies</h4>
+                                    <p>Hamare madrasah mein Islam ke bunyadi usool aur ittehadat se mutaliq mutanazah mozoat ki taleem bhi di jati hai, jo students ko apne deen ko behtar samajhne mein madad deti hai.</p>
+                                </div>
+                                <div class="service-item" data-aos="zoom-in" data-aos-delay="400">
+                                    <i class="fas fa-hands-praying service-icon"></i>
+                                    <h4>Akhlaq Aur Adab</h4>
+                                    <p>Islam ke akhlaq aur adab ko farogh dene ke liye hum mukhtalif workshop aur seminar bhi muntazim karte hain, jisse ke students ki shakhsiyat aur khuluq sudhar sake.</p>
+                                </div>
+                                <div class="service-item" data-aos="zoom-in" data-aos-delay="500">
+                                    <i class="fas fa-futbol service-icon"></i>
+                                    <h4>Extra-Curricular Activities</h4>
+                                    <p>Taleem ke sath sath hum students ko extra-curricular activities jese ke sports, debates, aur art ke mauqe bhi faraham karte hain taake wo ek balanced aur holistic development hasil kar saken.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="donation" class="section" data-aos="fade-up">
+                <h2>Donation</h2>
+                <div class="content">
+                    <div class="section-header">
+                        <h3>Madrasa Ki Madad</h3>
+                        <!-- <p class="section-subtitle">Aapki Madad Se Mukammal Hoga Ye Kaam</p> -->
+                    </div>
+                    <div class="section-body">
+                        <div class="donation-cards">
+                            <div class="donation-card" data-aos="flip-left" data-aos-delay="100">
+                                <i class="fas fa-hand-holding-heart card-icon"></i>
+                                <h4>Madrasa Ka Kaam Mukammal Karne Mein Aapki Madad Ki Zarurat</h4>
+                                <p>Hamare madrasa ka kaam apne ikhtitam ke qareeb hai, magar abhi kuch aham hissa tamam hona baqi hai. Ye madrasa sirf ek imarat nahi, balki un bacho ke liye ek umeed hai jo yahan taleem hasil karte hain aur apne mustaqbil ko roshan karne ka khwab dekhte hain</p>
+                                <a href="donation.html" class="donate-btn">Donate Now</a>
+                            </div>
+
+                            <div class="donation-card" data-aos="flip-left" data-aos-delay="200">
+                                <i class="fas fa-school card-icon"></i>
+                                <h4>Madrasa: Taleem Ki Roshni Ka Markaz</h4>
+                                <p>Ye madrasa ek roshni ka markaz hai jahan bache apni zindagi ki rahein roshan karte hain. Magar is roshni ko poora karne ke liye aapki madad zaruri hai. Aap apne chhote se hissa se is imarat ko tamam karne mein madad kar sakte hain jahan in bacho ka mustaqbil banega.</p>
+                                <a href="donation.html" class="donate-btn">Donate Now</a>
+                            </div>
+
+                            <div class="donation-card" data-aos="flip-left" data-aos-delay="300">
+                                <i class="fas fa-praying-hands card-icon"></i>
+                                <h4>Aapki Madad Se Mukammal Hoga Ye Kaam</h4>
+                                <p>Hamara madrasa jo ke taleem ka markaz hai, uska kaam takreeban mukammal ho chuka hai, magar abhi kuch kaam baqi hai. Aapka diya hua chhota sa hissa is madrasa ko mukammal karne mein madadgar hoga, aur aapke liye ek behtareen sadqa e jariyah banega.</p>
+                                <a href="donation.html" class="donate-btn">Donate Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact-us" class="section" data-aos="fade-up">
+                <h2>Contact Us</h2>
+                <div class="content">
+                    <div class="section-header">
+                        <h3>Rabta Karein</h3>
+                        <!-- <p class="section-subtitle">Admission Aur Maloomat Ke Liye</p> -->
+                    </div>
+                    <div class="section-body">
+                        <div class="contact-intro">
+                            <!-- <p>Agar aap apne bacho ko hamare madrasa mein taleem dilwana chahte hain, toh humein rabta karein. Hamare madrasa mein taleem lene wale bache na sirf Quran aur Sunnat ki taleem hasil karte hain, balki duniya ke muqable ke liye bhi tayar kiye jate hain.</p> -->
+                        </div>
+                        
+                        <div class="contact-cards">
+                            <div class="contact-card" data-aos="zoom-in" data-aos-delay="100">
+                                <i class="fas fa-address-card card-icon"></i>
+                                <h4>Contact Details</h4>
+                                <div class="contact-info">
+                                    <p style="background-color:#3a7eac; border-radius: 25px; text-align: center;color: azure; padding: 6px 10px;">Founder Of Madrsa</p>
+                                    <div class="contact-person">
+                                        <i class="fas fa-user-tie"></i>
+                                        <div class="contact-details">
+                                            <p><strong>Khalif E Anwar Olama Maulana Md Jannatur Rab Razwi</strong></p>
+                                            <p><i class="fas fa-phone-alt"></i> <a href="tel://9470463078">9199904604</a></p>
+                                            <p><i class="fas fa-envelope"></i> <a href="mailto:mdirfan@example.com">jannaturrab010@gmail.com</a></p>
+                                        </div>
+                                    </div>
+                                    <p style="background-color:#3a7eac; border-radius: 25px; text-align: center;color: azure; padding: 6px 10px;">Mannagment Of Madrsa</p>
+                                    <div class="contact-person"> 
+                                        <i class="fas fa-user-tie"></i> 
+                                        <div class="contact-details">
+                                            <p><strong>Md Ibrar</strong></p>
+                                            <p><i class="fas fa-phone-alt"></i> <a href="tel://9973621173">9973621173</a></p>
+                                            <!-- <p><i class="fas fa-envelope"></i> <a href="mailto:mdibrar@example.com">mdibrar@example.com</a></p> -->
+                                        </div>
+                                        <div class="contact-person">
+                                            <i class="fas fa-user-tie"></i>
+                                            <div class="contact-details">
+                                                <p><strong>Md Irfan</strong></p>
+                                                <p><i class="fas fa-phone-alt"></i> <a href="tel://9470463078">9470463078</a></p>
+                                                <!-- <p><i class="fas fa-envelope"></i> <a href="mailto:mdibrar@example.com">mdibrar@example.com</a></p> -->
+                                            </div>
+                                        </div>
+                                    </div>                
+                                </div>
+                            </div>
+
+                            <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
+                                <i class="fas fa-map-marker-alt card-icon"></i>
+                                <h4>Location</h4>
+                                <div class="map-container">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d817.5385837494532!2d84.3499444!3d25.08025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDA0JzQ4LjkiTiA4NMKwMjAnNTkuOCJF!5e1!3m2!1sen!2sin!4v1724840594494!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                    <p><strong>Village-Sikariya, P.S- Karakat(Gorari),Dist- Rohtas(Bihar)821310</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>        
+        <div>
+            <p style="background-color: #2c3e50;color: aliceblue; padding: 15px; text-align: center;">&copy;Copyright 2022 Madrasa Darul Uloom Faizain-E-Tajushsharia Sikariyan. All Rights Reserved</p>
+        </div>
+    </footer>
+    <button id="back-to-top" class="back-to-top"><i class="material-icons">arrow_upward</i></button>
+
+    <!-- Success/Error divs for notifications -->
+    <div id="success-message" class="notification-message success" style="display: none;"></div>
+    <div id="error-message" class="notification-message error" style="display: none;"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
